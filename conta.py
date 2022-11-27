@@ -21,7 +21,11 @@ class Conta:
 
     def sacar(self, valor) -> None:
         if not self.__pode_sacar(valor):
-            print(f'O limite de saque disponível é: {self.__limite}')
+            message = f'O valor {valor} passou dos limites'
+
+            print(message)
+
+            raise ValueError(message)
 
         self.__saldo -= valor
 
@@ -39,6 +43,6 @@ class Conta:
     @staticmethod
     def codigo_banco():
         ''' class method '''
-        
+
         return "001"
 
