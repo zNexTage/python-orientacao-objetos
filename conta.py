@@ -36,4 +36,9 @@ class Conta:
 
         print(f'{self.__titular} transferiu R$ {valor} para {contaDestino.titular}')
 
+    @staticmethod
+    def codigo_banco():
+        ''' class method '''
+        
+        return "001"
 
