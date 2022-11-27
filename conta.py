@@ -14,9 +14,14 @@ class Conta:
     def depositar(self, valor) -> None:
         self.__saldo += valor
 
+    def __pode_sacar(self, valor_saque):
+        valor_disponivel_saque = self.__saldo + self.__limite
+
+        return valor_saque <= valor_disponivel_saque
+
     def sacar(self, valor) -> None:
-        if valor > self.__limite:
-            raise ValueError(f'O limite de saque disponível é: {self.__limite}')
+        if not self.__pode_sacar(valor):
+            print(f'O limite de saque disponível é: {self.__limite}')
 
         self.__saldo -= valor
 
